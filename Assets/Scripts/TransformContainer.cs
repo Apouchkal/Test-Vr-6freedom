@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using System;
 
 namespace Cook
 {
     public class TransformContainer : MonoBehaviour
     {
+        public Action OnContainerFull;
+
         [SerializeField]
         private GameObject Result;
         private List<XRSocketInteractor> socketInteractors = new List<XRSocketInteractor>();
@@ -19,6 +22,11 @@ namespace Cook
             GetSocketsInChildren();
 
             InitialiseSockets();
+        }
+
+        public void DefineNumberOfSocket()
+        {
+
         }
 
         private void GetSocketsInChildren()
@@ -50,6 +58,8 @@ namespace Cook
 
                 Destroy(this.gameObject);
                 DeleteObjStockInSocket();
+
+                OnContainerFull?.Invoke();
             }
         }
  
@@ -69,8 +79,6 @@ namespace Cook
                 Destroy(obj);
                 gameObjetStockInSocket.Remove(obj);
             }));
-
-            
         }
     }
 }
