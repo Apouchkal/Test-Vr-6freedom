@@ -78,7 +78,7 @@ MonoBehaviour:
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
-  m_InteractableHoverScale: 1
+  m_InteractableHoverScale: 1.5
   m_RecycleDelayTime: 1
 --- !u!136 &2516984197372665169
 CapsuleCollider:
@@ -88,7 +88,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2516984197372665171}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.1
   m_Height: 1
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
-  m_InteractableHoverScale: 1
+  m_InteractableHoverScale: 1.5
   m_RecycleDelayTime: 1
 --- !u!136 &2516984197926112154
 CapsuleCollider:
@@ -182,7 +182,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2516984197926112164}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.1
   m_Height: 1
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_InteractableHoverMeshMaterial: {fileID: 0}
   m_InteractableCantHoverMeshMaterial: {fileID: 0}
   m_SocketActive: 1
-  m_InteractableHoverScale: 1
+  m_InteractableHoverScale: 1.5
   m_RecycleDelayTime: 1
 --- !u!136 &2516984198431733786
 CapsuleCollider:
@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 2694461784382217843}
   - component: {fileID: 1354313701309059542}
   - component: {fileID: 3832434000667370780}
+  - component: {fileID: 919132148187685939}
   m_Layer: 0
   m_Name: pot
   m_TagString: Untagged
@@ -367,3 +368,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &919132148187685939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3328008508326528201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b317809e4c52741baf53bfa1e33718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Result: {fileID: 919132149155446097, guid: 335a0d05fd5783c4aafd921a10f2d944, type: 3}
