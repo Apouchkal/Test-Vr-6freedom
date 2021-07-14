@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b65fb83975252e408d74238f61fdcbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeholderFry: {fileID: 0}
+  placeholderFry: {fileID: 1382544881}
   placeholderCook: {fileID: 1376769166}
   placeholderCut: {fileID: 1911534045}
   placeholderChopCut: {fileID: 579936982}
@@ -286,7 +286,6 @@ MonoBehaviour:
   gameOverFail: {fileID: 1163086279}
   recipe:
     doesFry: 0
-    doesCook: 1
     doesCut: 1
     doesChopCut: 0
     Foods:
@@ -2953,6 +2952,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 8196184645448365999, guid: 9b579d932516a784e88860c5ebe4b09f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9b579d932516a784e88860c5ebe4b09f, type: 3}
+--- !u!1 &1382544881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9043187728014428914, guid: 9b579d932516a784e88860c5ebe4b09f, type: 3}
+  m_PrefabInstance: {fileID: 1382544880}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1394963046
 GameObject:
   m_ObjectHideFlags: 0

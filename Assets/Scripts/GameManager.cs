@@ -36,12 +36,11 @@ namespace Cook
 
         private void Start()
         {
-            placeholderCook.OnContainerFull = GameWin;
-            placeholderCook.DefineNumberOfSocket(recipe.NumberOfTransformFood());
+            SetupTheGame();
 
-            CreateFood();
+            DefineWinCon();
 
-            timer = recipe.timer;
+            InstantiateFoods();
         }
 
         private void Update()
@@ -55,7 +54,13 @@ namespace Cook
             ProcessTimer();
         }
 
-        private void CreateFood()
+        private void DefineWinCon()
+        {
+            placeholderCook.OnContainerFull = GameWin;
+            placeholderCook.DefineNumberOfSocket(recipe.NumberOfTransformFood());
+        }
+
+        private void InstantiateFoods()
         {
             var Foods = recipe.Foods;
 
@@ -65,6 +70,15 @@ namespace Cook
 
                 Instantiate(Foods[i], placeHolder.transform.position, placeHolder.transform.rotation);
             }
+        }
+
+        private void SetupTheGame()
+        {
+            placeholderFry.SetActive(recipe.doesFry);
+            placeholderCut.SetActive(recipe.doesCut);
+            placeholderChopCut.SetActive(recipe.doesChopCut);
+
+            timer = recipe.timer;
         }
 
         private void ProcessTimer()

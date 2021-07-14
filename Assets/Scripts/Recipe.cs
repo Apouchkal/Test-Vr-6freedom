@@ -8,7 +8,6 @@ namespace Cook
     public class Recipe
     {
         public bool doesFry;
-        public bool doesCook;
         public bool doesCut;
         public bool doesChopCut;
         public List<TransformRaw> Foods = new List<TransformRaw>();
