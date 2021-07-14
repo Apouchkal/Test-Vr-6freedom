@@ -11,6 +11,8 @@ namespace Cook
         [SerializeField]
         private List<GameObject> results = new List<GameObject>();
 
+        public int NumberOfProcessFood { get => results.Count; }
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.gameObject.CompareTag(actionName))

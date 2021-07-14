@@ -13,20 +13,27 @@ namespace Cook
 
         [SerializeField]
         private GameObject Result;
+        [SerializeField]
         private List<XRSocketInteractor> socketInteractors = new List<XRSocketInteractor>();
+        
+        [SerializeField]
         private List<GameObject> gameObjetStockInSocket = new List<GameObject>();
         private int numberOfSocketFull;
 
-        private void Start()
+        private void Awake()
         {
             GetSocketsInChildren();
 
             InitialiseSockets();
         }
 
-        public void DefineNumberOfSocket()
+        public void DefineNumberOfSocket(int numberOfSocket)
         {
+            int numberOfSocketAvailable = socketInteractors.Count;
 
+            UninitialiseSockets();
+
+            socketInteractors.RemoveAt(numberOfSocket - 1);
         }
 
         private void GetSocketsInChildren()
@@ -42,6 +49,15 @@ namespace Cook
             {
                 socket.onSelectEntered.AddListener(AddToSocket);
                 socket.onSelectExited.AddListener(RemoveToSocket);
+            });
+        }
+
+        private void UninitialiseSockets()
+        {
+            socketInteractors.ForEach((socket) =>
+            {
+                socket.onSelectEntered.RemoveListener(AddToSocket);
+                socket.onSelectExited.RemoveListener(RemoveToSocket);
             });
         }
 

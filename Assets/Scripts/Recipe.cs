@@ -1,16 +1,26 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Cook
 {
-    public class Recipe : ScriptableObject
+    [Serializable]
+    public class Recipe
     {
         public bool doesFry;
         public bool doesCook;
         public bool doesCut;
         public bool doesChopCut;
-        public List<GameObject> Foods = new List<GameObject>();
+        public List<TransformRaw> Foods = new List<TransformRaw>();
         public float timer;
+
+        public int NumberOfTransformFood()
+        {
+            int number = 0;
+
+            Foods.ForEach((food) => number += food.NumberOfProcessFood);
+
+            return number;
+        }
     }
 }

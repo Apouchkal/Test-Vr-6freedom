@@ -16,7 +16,7 @@ namespace Cook
         [SerializeField]
         private GameObject placeholderChopCut;
         [SerializeField]
-        private GameObject placeholderFood;
+        private List<GameObject> placeholderFood = new List<GameObject>();
 
         [Header("Placeholder for UI")]
         [SerializeField]
@@ -31,21 +31,20 @@ namespace Cook
         [SerializeField] 
         private Recipe recipe;
 
-        private float timer = 10;
+        private float timer;
         private bool isRecipeFinish = false;
 
         private void Start()
         {
-            
+            placeholderCook.OnContainerFull = GameWin;
+            placeholderCook.DefineNumberOfSocket(recipe.NumberOfTransformFood());
+
+            CreateFood();
+
+            timer = recipe.timer;
         }
 
         private void Update()
-        {
-
-            ProcessTimer();
-        }
-
-        private void ProcessTimer()
         {
             if (isRecipeFinish)
             {
@@ -53,8 +52,27 @@ namespace Cook
                 return;
             }
 
+            ProcessTimer();
+        }
+
+        private void CreateFood()
+        {
+            var Foods = recipe.Foods;
+
+            for (int i = 0; i < Foods.Count; i++)
+            {
+                var placeHolder = placeholderFood[i];
+
+                Instantiate(Foods[i], placeHolder.transform.position, placeHolder.transform.rotation);
+            }
+        }
+
+        private void ProcessTimer()
+        {
             if(timer < 0)
             {
+                uiTimer.gameObject.SetActive(false);
+                instruction.gameObject.SetActive(false);
                 gameOverFail.SetActive(true);
                 return;
             }
@@ -62,6 +80,11 @@ namespace Cook
             timer -= Time.deltaTime;
 
             uiTimer.timer?.Invoke(timer);
+        }
+
+        private void GameWin()
+        {
+            isRecipeFinish = true;
         }
     }
 }

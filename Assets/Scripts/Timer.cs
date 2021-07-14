@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,7 @@ namespace Cook
 
         private void UpdateChrono(float timer)
         {
-            var textTimer = timer.ToString("mm:ss");
+            var textTimer = timer.ToString("F", CultureInfo.CreateSpecificCulture("fr-FR"));
             uiChrono.text = textTimer;
         }
     }
